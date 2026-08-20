@@ -1,0 +1,259 @@
+/**
+ * ADCAM DIGITAL — ANIMATION SYSTEM
+ * css/animations.css
+ *
+ * Phase 2 — Refined, restrained motion language.
+ * Motion communicates quality, not novelty.
+ * All animations respect prefers-reduced-motion.
+ */
+
+/* ============================================================
+ * KEYFRAMES
+ * ============================================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Subtle shimmer — loading placeholders */
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+/* Pulse — subtle alive pulse for status indicators */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+
+/* Connector flow — for ecosystem diagram animation */
+@keyframes flowRight {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Dot pulse — status alive indicator */
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%       { transform: scale(1.5); opacity: 0.6; }
+}
+
+/* Number counter — fill effect */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+ * SCROLL REVEAL SYSTEM
+ * Elements start hidden, JS adds .is-visible to animate them in.
+ * css/animations.js uses IntersectionObserver.
+ * ============================================================ */
+
+.reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity   var(--duration-slow) var(--ease-decelerate),
+    transform var(--duration-slow) var(--ease-decelerate);
+}
+
+.reveal.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Transform variants */
+.reveal--fade-up    { transform: translateY(36px); }
+.reveal--fade-down  { transform: translateY(-20px); }
+.reveal--fade-left  { transform: translateX(-36px); }
+.reveal--fade-right { transform: translateX(36px); }
+.reveal--scale      { transform: scale(0.93); }
+.reveal--scale-up   { transform: scale(0.97) translateY(20px); }
+
+/* ============================================================
+ * STAGGER CHILDREN
+ * Parent gets .reveal-stagger, JS adds .is-visible to trigger.
+ * ============================================================ */
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity   var(--duration-slow) var(--ease-decelerate),
+    transform var(--duration-slow) var(--ease-decelerate);
+}
+
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger delays — up to 8 children */
+.reveal-stagger.is-visible > *:nth-child(1)  { transition-delay:   0ms; }
+.reveal-stagger.is-visible > *:nth-child(2)  { transition-delay:  80ms; }
+.reveal-stagger.is-visible > *:nth-child(3)  { transition-delay: 160ms; }
+.reveal-stagger.is-visible > *:nth-child(4)  { transition-delay: 240ms; }
+.reveal-stagger.is-visible > *:nth-child(5)  { transition-delay: 320ms; }
+.reveal-stagger.is-visible > *:nth-child(6)  { transition-delay: 400ms; }
+.reveal-stagger.is-visible > *:nth-child(7)  { transition-delay: 480ms; }
+.reveal-stagger.is-visible > *:nth-child(8)  { transition-delay: 560ms; }
+
+/* ============================================================
+ * ONE-SHOT ANIMATION CLASSES
+ * ============================================================ */
+
+.animate-fade-in    { animation: fadeIn    var(--duration-normal) var(--ease-decelerate) both; }
+.animate-fade-up    { animation: fadeInUp  var(--duration-slow)   var(--ease-decelerate) both; }
+.animate-scale-in   { animation: scaleIn   var(--duration-normal) var(--ease-spring)     both; }
+
+/* Delay utilities */
+.delay-100  { animation-delay: 100ms; transition-delay: 100ms; }
+.delay-200  { animation-delay: 200ms; transition-delay: 200ms; }
+.delay-300  { animation-delay: 300ms; transition-delay: 300ms; }
+.delay-400  { animation-delay: 400ms; transition-delay: 400ms; }
+.delay-500  { animation-delay: 500ms; transition-delay: 500ms; }
+.delay-600  { animation-delay: 600ms; transition-delay: 600ms; }
+.delay-700  { animation-delay: 700ms; transition-delay: 700ms; }
+.delay-800  { animation-delay: 800ms; transition-delay: 800ms; }
+
+/* ============================================================
+ * HOVER MICRO-INTERACTIONS
+ * ============================================================ */
+
+.hover-lift {
+  transition: transform var(--transition-normal) var(--ease-decelerate),
+              box-shadow var(--transition-normal);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-lift-sm {
+  transition: transform var(--transition-fast) var(--ease-decelerate),
+              box-shadow var(--transition-fast);
+}
+.hover-lift-sm:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.hover-scale {
+  transition: transform var(--transition-fast) var(--ease-spring);
+}
+.hover-scale:hover { transform: scale(1.02); }
+
+/* ============================================================
+ * LINE DRAW — for ecosystem connectors (SVG)
+ * ============================================================ */
+
+.connector-line {
+  stroke-dasharray: 6 4;
+  stroke-dashoffset: 0;
+  animation: flowRight 2s linear infinite;
+}
+
+/* ============================================================
+ * STATUS DOT — alive indicators
+ * ============================================================ */
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-success);
+  display: inline-block;
+}
+
+.status-dot--pulse {
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+/* ============================================================
+ * SKELETON LOADING
+ * ============================================================ */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-elevated) 0%,
+    var(--color-bg-card)     50%,
+    var(--color-bg-elevated) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ============================================================
+ * REDUCED MOTION — Full override
+ * ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .animate-fade-in,
+  .animate-fade-up,
+  .animate-scale-in {
+    animation: none !important;
+  }
+
+  .hover-lift:hover,
+  .hover-lift-sm:hover,
+  .hover-scale:hover {
+    transform: none !important;
+  }
+
+  .connector-line {
+    animation: none !important;
+  }
+
+  .status-dot--pulse {
+    animation: none !important;
+  }
+
+  .skeleton {
+    animation: none !important;
+    background: var(--color-bg-elevated);
+  }
+
+}

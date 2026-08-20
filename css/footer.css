@@ -1,0 +1,346 @@
+/**
+ * ADCAM DIGITAL — FOOTER (PREMIUM LIGHT CORPORATE)
+ * css/footer.css
+ *
+ * Light corporate site footer with verified business details,
+ * compact 2-column mobile grid, and NextLab Innovations partnership strip.
+ */
+
+.site-footer {
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-8);
+  position: relative;
+}
+
+/* Desktop Multi-Column Layout */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.35fr 2fr;
+  gap: var(--space-12);
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.footer-brand__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.footer-brand__logo:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.footer-brand__img {
+  height: 76px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(11, 18, 32, 0.06);
+}
+
+.footer-brand__desc {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 340px;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.footer-contact-icon {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  color: var(--color-accent-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.footer-contact-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+
+.footer-contact-item a {
+  color: var(--color-text-primary);
+  font-weight: var(--weight-medium);
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.footer-contact-item a:hover {
+  color: var(--color-accent-primary);
+}
+
+/* ============================================================
+ * NAVIGATION LINKS GRID (Desktop: 3 cols; Mobile: 2 cols side-by-side)
+ * ============================================================ */
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  gap: var(--space-8);
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col__heading {
+  font-size: var(--text-label);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-4);
+}
+
+.footer-col__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-col__link {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-col__link:hover {
+  color: var(--color-accent-primary);
+  transform: translateX(2px);
+}
+
+/* ============================================================
+ * NEXTLAB PARTNER STRIP
+ * ============================================================ */
+
+.footer-partner-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.footer-partner-strip__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.footer-partner-strip__label {
+  font-size: var(--text-label);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-secondary);
+}
+
+.footer-partner-strip__separator {
+  width: 1px;
+  height: 18px;
+  background: var(--color-border-strong);
+}
+
+.footer-partner-strip__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-3);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.footer-partner-strip__logo:hover {
+  border-color: var(--color-accent-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.footer-partner-strip__logo img {
+  height: 22px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+}
+
+.footer-partner-strip__name {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.footer-partner-strip__link {
+  font-size: var(--text-caption);
+  color: var(--color-accent-primary);
+  font-weight: var(--weight-medium);
+}
+
+/* ============================================================
+ * FOOTER BOTTOM BAR
+ * ============================================================ */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-6);
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.footer-bottom__copy {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-muted);
+}
+
+.footer-bottom__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.footer-bottom__link {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-bottom__link:hover {
+  color: var(--color-text-primary);
+}
+
+/* ============================================================
+ * TABLET RESPONSIVE (768px – 1024px)
+ * ============================================================ */
+
+@media (max-width: 1024px) {
+  .site-footer {
+    padding-top: var(--space-12);
+  }
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+  .footer-links-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+/* ============================================================
+ * MOBILE RESPONSIVE (<= 768px)
+ * Compact 2-column grid: Company & Services SIDE-BY-SIDE
+ * ============================================================ */
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-6);
+  }
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding-bottom: var(--space-6);
+  }
+
+  .footer-brand__img {
+    height: 64px;
+  }
+
+  /* Compact 2-Column Mobile Links Grid: Row 1 = Company | Services */
+  .footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6) var(--space-5);
+  }
+
+  .footer-col--legal {
+    grid-column: 1 / -1;
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--color-border);
+  }
+
+  .footer-col--legal .footer-col__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .footer-partner-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+  }
+}
+
+/* Very narrow mobile devices (<= 360px) */
+@media (max-width: 360px) {
+  .footer-links-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .footer-col--legal .footer-col__list {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}

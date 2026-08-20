@@ -1,0 +1,9 @@
+# AdCam Digital — robots.txt
+User-agent: *
+Allow: /
+
+# Disallow internal / system paths
+Disallow: /data/
+Disallow: /.git/
+
+Sitemap: https://www.adcamdigital.com/sitemap.xml

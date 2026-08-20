@@ -1,0 +1,438 @@
+/**
+ * ADCAM DIGITAL — RESPONSIVE SYSTEM (COMPLETE REWRITE)
+ * css/responsive.css
+ *
+ * Breakpoints:
+ *   xs:   320px  — minimum supported
+ *   sm:   480px
+ *   md:   640px
+ *   lg:   768px  — tablet / nav collapse
+ *   xl:   1024px — small laptop
+ *  2xl:   1280px — desktop
+ *  3xl:   1536px — large desktop
+ *  4xl:   1920px — ultra-wide
+ *
+ * Strategy:
+ *   - Mobile-first where practical
+ *   - Use clamp() / fluid sizing for core typography & spacing
+ *   - Only break when content genuinely needs it
+ *   - Preserve desktop premium quality
+ *   - Mobile: clean, lightweight, touch-friendly
+ */
+
+/* ============================================================
+ * DISPLAY UTILITIES
+ * ============================================================ */
+
+.hide-mobile  { }
+.show-mobile  { display: none; }
+
+@media (max-width: 768px) {
+  .hide-mobile  { display: none !important; }
+  .show-mobile  { display: revert !important; }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* ============================================================
+ * RESPONSIVE CONTAINER PADDING
+ * ============================================================ */
+
+@media (max-width: 480px) {
+  :root {
+    --container-padding-x: var(--space-5);
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --container-padding-x: var(--space-4);
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container-padding-x: var(--space-20);
+  }
+}
+
+/* ============================================================
+ * RESPONSIVE SECTION SPACING
+ * ============================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y:    clamp(var(--space-12), 8vw, var(--space-20));
+    --section-padding-y-sm: clamp(var(--space-8),  5vw, var(--space-12));
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding-y:    var(--space-12);
+    --section-padding-y-sm: var(--space-8);
+  }
+}
+
+/* ============================================================
+ * TYPOGRAPHY RESPONSIVE
+ * clamp() in variables.css handles most cases.
+ * ============================================================ */
+
+@media (max-width: 480px) {
+  .lead {
+    font-size: var(--text-body);
+  }
+  .section-header--center {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .section-header--center .lead,
+  .section-header--center .section-heading__subtitle {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ============================================================
+ * MOBILE ANIMATION — Lighter on small screens
+ * Shorter travel distance, shorter duration
+ * ============================================================ */
+
+@media (max-width: 768px) {
+  .reveal--fade-up    { transform: translateY(16px); }
+  .reveal--fade-down  { transform: translateY(-10px); }
+  .reveal--fade-left  { transform: translateX(-16px); }
+  .reveal--fade-right { transform: translateX(16px); }
+  .reveal--scale      { transform: scale(0.96); }
+  .reveal--scale-up   { transform: scale(0.98) translateY(10px); }
+
+  .reveal {
+    transition:
+      opacity   350ms var(--ease-decelerate),
+      transform 350ms var(--ease-decelerate);
+  }
+
+  .reveal-stagger > * {
+    transform: translateY(12px);
+    transition:
+      opacity   350ms var(--ease-decelerate),
+      transform 350ms var(--ease-decelerate);
+  }
+}
+
+/* ============================================================
+ * TOUCH TARGETS — WCAG 2.1 minimum 44×44px
+ * ============================================================ */
+
+@media (pointer: coarse) {
+  .btn {
+    min-height: 48px;
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+  .btn--sm {
+    min-height: 44px;
+  }
+  .nav-link {
+    padding: var(--space-3) var(--space-3);
+    min-height: 44px;
+  }
+  .footer-col__link {
+    padding: var(--space-2) 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ============================================================
+ * HOVER — only apply on devices that support hover
+ * ============================================================ */
+
+@media (hover: none) {
+  .service-card:hover,
+  .process-card:hover,
+  .capability-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .hover-lift:hover,
+  .hover-lift-sm:hover,
+  .hover-scale:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+
+  .footer-col__link:hover {
+    transform: none;
+  }
+
+  .nav-logo:hover {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+ * HERO — FULL RESPONSIVE STACK
+ * ============================================================ */
+
+/* Tablet (768–1024px): Reduce visual but keep two columns */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+  .hero-3d-container {
+    max-width: 400px;
+  }
+}
+
+/* Mobile: Full stack layout */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: clamp(22px, 3.8vw, 38px);
+    padding-bottom: clamp(28px, 4.5vw, 48px);
+    min-height: auto;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-8);
+  }
+
+  .hero-visual-wrap {
+    order: 2;
+    justify-content: center;
+  }
+
+  .hero-3d-container {
+    width: min(88vw, 380px);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.1rem, 7.5vw, 2.8rem);
+  }
+
+  .hero-subhead {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  }
+
+  .hero-description {
+    font-size: var(--text-body);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 50px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 374px) {
+  .hero-headline {
+    font-size: clamp(1.85rem, 7vw, 2.2rem);
+  }
+  .hero-subhead {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+  .typewriter-slot {
+    white-space: normal;
+    word-break: break-word;
+  }
+  .typewriter-sizer {
+    white-space: normal;
+  }
+  .typewriter-active {
+    white-space: normal;
+  }
+}
+
+/* ============================================================
+ * CAPABILITIES STRIP RESPONSIVE
+ * ============================================================ */
+
+@media (max-width: 900px) {
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+ * PROCESS GRID RESPONSIVE
+ * ============================================================ */
+
+@media (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+ * ECOSYSTEM SPLIT RESPONSIVE
+ * ============================================================ */
+
+@media (max-width: 900px) {
+  .ecosystem-split {
+    grid-template-columns: 1fr;
+  }
+  .ecosystem-card {
+    padding: var(--space-6) var(--space-6);
+  }
+}
+
+/* ============================================================
+ * NEXTLAB SHOWCASE RESPONSIVE
+ * ============================================================ */
+
+@media (max-width: 900px) {
+  .nextlab-showcase-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* ============================================================
+ * POSITIONING STRIP RESPONSIVE
+ * ============================================================ */
+
+@media (max-width: 640px) {
+  .positioning-statement {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  }
+  .positioning-strip {
+    padding: var(--space-10) 0;
+  }
+}
+
+/* ============================================================
+ * CTA BLOCK RESPONSIVE
+ * ============================================================ */
+
+@media (max-width: 640px) {
+  .cta-block__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cta-block__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+ * LAYOUT SPLIT RESPONSIVE — Already in layout.css but ensure
+ * ============================================================ */
+
+@media (max-width: 768px) {
+  .layout-split,
+  .layout-split--55-45,
+  .layout-split--45-55,
+  .layout-split--60-40 {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* ============================================================
+ * SECTION HEADING RESPONSIVE
+ * ============================================================ */
+
+@media (max-width: 640px) {
+  .section-heading__subtitle {
+    font-size: var(--text-body);
+  }
+}
+
+/* ============================================================
+ * LANDSCAPE MOBILE — avoid crushed hero on short viewports
+ * ============================================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+  }
+
+  .hero-3d-container {
+    max-width: 280px;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+  }
+}
+
+/* ============================================================
+ * PRINT
+ * ============================================================ */
+
+@media print {
+  .site-header,
+  .nav-mobile,
+  .nav-toggle,
+  .site-footer { display: none !important; }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a { color: black; }
+  .nav-offset { padding-top: 0; }
+
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+ * REDUCED MOTION — Comprehensive override
+ * ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  .hero-3d-container {
+    animation: none !important;
+  }
+  .subtleFloat {
+    animation: none !important;
+  }
+}

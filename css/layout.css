@@ -1,0 +1,142 @@
+/**
+ * ADCAM DIGITAL — LAYOUT SYSTEM
+ * css/layout.css
+ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+}
+
+.container--wide    { max-width: var(--container-wide); }
+.container--reading { max-width: var(--container-reading); }
+.container--narrow  { max-width: var(--container-narrow); }
+
+.section {
+  position: relative;
+  padding-top:    var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+.section--sm {
+  padding-top:    var(--section-padding-y-sm);
+  padding-bottom: var(--section-padding-y-sm);
+}
+
+.section--primary   { background-color: var(--color-bg-primary); }
+.section--secondary { background-color: var(--color-bg-secondary); }
+.section--tertiary  { background-color: var(--color-bg-tertiary); }
+.section--dark      { background-color: var(--color-bg-dark-section); color: var(--color-text-inverse); }
+
+.section--grid-light {
+  background-color: var(--color-bg-primary);
+  background-image: var(--gradient-grid-light);
+}
+
+.section-header {
+  margin-bottom: var(--section-gap);
+}
+
+.section-header--center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-header--center .lead,
+.section-header--center .section-heading__subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-heading__title {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-heading);
+  letter-spacing: var(--tracking-tight);
+}
+
+.section-heading__subtitle {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 620px;
+  margin-top: var(--space-3);
+}
+
+/* Grids */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.layout-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.layout-split--55-45 { grid-template-columns: 11fr 9fr; }
+.layout-split--45-55 { grid-template-columns: 9fr 11fr; }
+.layout-split--60-40 { grid-template-columns: 3fr 2fr; }
+.layout-split--center { align-items: center; }
+
+/* Utilities */
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+.stack--xs > * + * { margin-top: var(--space-2); }
+.stack--sm > * + * { margin-top: var(--space-3); }
+.stack--md > * + * { margin-top: var(--space-5); }
+.stack--lg > * + * { margin-top: var(--space-8); }
+.stack--xl > * + * { margin-top: var(--space-12); }
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+  margin: var(--space-6) 0;
+}
+
+
+@media (max-width: 1024px) {
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid--3,
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .layout-split,
+  .layout-split--55-45,
+  .layout-split--45-55,
+  .layout-split--60-40 {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 540px) {
+  .grid--2,
+  .grid--3,
+  .grid--4 { grid-template-columns: 1fr; }
+}
+

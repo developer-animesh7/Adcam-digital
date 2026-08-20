@@ -1,0 +1,88 @@
+# AdCam Digital — .gitignore
+#
+# Prevents accidental commits of secrets, system files,
+# and build artifacts.
+#
+# Phase 1 — Foundation
+
+# ============================================================
+# SECRETS & CREDENTIALS
+# NEVER commit these. Ever.
+# ============================================================
+.env
+.env.*
+.env.local
+.env.production
+.env.staging
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+secrets/
+credentials/
+config/secrets*
+
+# ============================================================
+# NODE / PACKAGE MANAGERS
+# (Not currently used — listed for future safety)
+# ============================================================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+.pnp
+.pnp.js
+package-lock.json
+yarn.lock
+.npmrc
+
+# ============================================================
+# BUILD OUTPUT
+# ============================================================
+dist/
+build/
+.output/
+.nuxt/
+.next/
+out/
+
+# ============================================================
+# SYSTEM FILES
+# ============================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ============================================================
+# EDITOR FILES
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.orig
+
+# ============================================================
+# OS TEMP FILES
+# ============================================================
+*.tmp
+*.temp
+*.bak
+*.log
+
+# ============================================================
+# SECURITY NOTE
+# The legacy project directory is OUTSIDE this repository.
+# It must never be included or referenced inside ADCAM-NEW/.
+#
+# C:\Adcam Digital\Existing website\  <-- NEVER add this path
+# ============================================================

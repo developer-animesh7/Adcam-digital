@@ -1,0 +1,65 @@
+/**
+ * ADCAM DIGITAL — SERVICES PAGE STYLES (LIGHT CORPORATE)
+ * css/pages/services.css
+ */
+
+.services-hero {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  background: var(--color-bg-primary);
+  background-image: var(--gradient-grid-light);
+}
+
+.service-detail-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-10);
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.service-detail-card:hover {
+  border-color: var(--color-accent-primary-border);
+  box-shadow: var(--shadow-md);
+}
+
+.service-features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.service-feature-tag {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.service-feature-tag::before {
+  content: '✓';
+  color: var(--color-accent-primary);
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .service-detail-card {
+    grid-template-columns: 1fr;
+    padding: var(--space-6);
+  }
+  .service-features-list {
+    grid-template-columns: 1fr;
+  }
+}

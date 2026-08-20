@@ -1,0 +1,369 @@
+/**
+ * ADCAM DIGITAL — CONTACT PAGE STYLES (LIGHT CORPORATE)
+ * css/pages/contact.css
+ */
+
+.contact-hero {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-12);
+  background: var(--color-bg-primary);
+  background-image: var(--gradient-grid-light);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+/* ============================================================
+ * CONTACT FORM CARD & INPUTS
+ * ============================================================ */
+
+.contact-form-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8) var(--space-10);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  position: relative;
+}
+
+.form-label {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-heading);
+}
+
+.form-label .required {
+  color: #2563eb;
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.6875rem var(--space-4);
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  line-height: 1.5;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3.5px rgba(37, 99, 235, 0.15);
+}
+
+.form-control::placeholder {
+  color: #94a3b8;
+}
+
+.form-control.is-invalid {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2;
+}
+
+.form-control.is-invalid:focus {
+  box-shadow: 0 0 0 3.5px rgba(220, 38, 38, 0.15) !important;
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.15em;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-error-msg {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #dc2626;
+  min-height: 1.1em;
+  display: none;
+  margin-top: 2px;
+}
+
+.form-error-msg.is-visible {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Submit Button Loading State */
+.btn.is-loading {
+  pointer-events: none;
+  opacity: 0.88;
+}
+
+.btn__spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+ * CONTACT SIDEBAR INFO CARD
+ * ============================================================ */
+
+.contact-card-info {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8) var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-primary-muted);
+  border: 1px solid var(--color-accent-primary-border);
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.info-title {
+  font-size: var(--text-label);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 2px;
+}
+
+.info-desc {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.info-desc a {
+  color: var(--color-text-primary);
+  font-weight: var(--weight-medium);
+  transition: color var(--transition-fast);
+}
+
+.info-desc a:hover {
+  color: #2563eb;
+}
+
+/* ============================================================
+ * SUCCESS & ERROR MODAL SYSTEM
+ * ============================================================ */
+
+.adcam-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(11, 18, 32, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.adcam-modal-overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.adcam-modal-dialog {
+  background: #ffffff;
+  border-radius: var(--radius-2xl);
+  padding: clamp(var(--space-8), 5vw, var(--space-12));
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(11, 18, 32, 0.22);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transform: scale(0.93) translateY(12px);
+  transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.adcam-modal-overlay.is-active .adcam-modal-dialog {
+  transform: scale(1) translateY(0);
+}
+
+.adcam-modal-close-btn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+
+.adcam-modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0b1220;
+  transform: scale(1.05);
+}
+
+.adcam-modal-icon-wrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  margin: 0 auto var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adcam-modal-icon--success {
+  background: #ecfdf5;
+  border: 2px solid #a7f3d0;
+  color: #059669;
+}
+
+.adcam-modal-icon--error {
+  background: #fef2f2;
+  border: 2px solid #fecaca;
+  color: #dc2626;
+}
+
+.adcam-modal-icon-wrap svg {
+  width: 34px;
+  height: 34px;
+}
+
+.adcam-modal-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.625rem);
+  font-weight: 800;
+  color: #0b1220;
+  line-height: 1.25;
+  margin-bottom: var(--space-2);
+}
+
+.adcam-modal-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: var(--space-3);
+}
+
+.adcam-modal-subtext {
+  font-size: 0.9375rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+}
+
+.adcam-modal-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================================
+ * RESPONSIVE RULES
+ * ============================================================ */
+
+@media (max-width: 960px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-form-card,
+  .contact-card-info {
+    padding: var(--space-6) var(--space-5);
+  }
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@media (pointer: coarse) {
+  .form-control {
+    min-height: 48px;
+    font-size: 16px; /* Prevents iOS safari zoom */
+  }
+  textarea.form-control {
+    min-height: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-8);
+  }
+}

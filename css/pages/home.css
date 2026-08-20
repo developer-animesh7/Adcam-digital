@@ -1,0 +1,565 @@
+/**
+ * ADCAM DIGITAL — HOMEPAGE STYLES (PREMIUM LIGHT CORPORATE)
+ * css/pages/home.css
+ */
+
+/* ============================================================
+ * HERO SECTION
+ * ============================================================ */
+
+.hero {
+  position: relative;
+  min-height: calc(100svh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  /* Deliberate, comfortable breathing space below header */
+  padding-top: clamp(26px, 3.8vw, 54px);
+  padding-bottom: clamp(36px, 4.8vw, 68px);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* Atmospheric Soft Ambient Glows (No Technical Grid Lines) */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  right: -5%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, rgba(6, 182, 212, 0.03) 50%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Stable Two-Column Grid — fluid, no fixed minimums */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(var(--space-8), 4vw, var(--space-14));
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+/* Eyebrow Badge (Refined corporate pill) */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.4rem 0.95rem;
+  background: #eff6ff;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+  width: fit-content;
+}
+
+.hero-eyebrow__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+/* Two-Line Bold Editorial Heading */
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4.4vw, 4.1rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #0b1220;
+  margin: 0;
+}
+
+.hero-headline-brand {
+  color: #2563eb;
+  display: block;
+}
+
+/* Subhead with Zero-Jitter Typewriter Slot */
+.hero-subhead {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.3vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0b1220;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+}
+
+.hero-subhead-prefix {
+  color: #0b1220;
+  font-weight: 700;
+}
+
+/* Zero-Layout-Shift Typewriter Container */
+.typewriter-slot {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  /* white-space handled per-breakpoint; default nowrap for desktop stability */
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;  /* prevent horizontal bleed on very narrow screens */
+}
+
+/* Sizer span reserves exact geometry for longest phrase */
+.typewriter-sizer {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* Active text rendered on top */
+.typewriter-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.typewriter-text {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+/* Smooth Blinking Cursor */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2.5px;
+  height: 1.1em;
+  background-color: #2563eb;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: cursorBlink 0.85s infinite;
+  border-radius: 1px;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-cursor {
+    display: none !important;
+  }
+}
+
+.hero-description {
+  font-size: clamp(1rem, 1.15vw, 1.1875rem);
+  line-height: 1.65;
+  color: #475569;
+  max-width: 560px;
+  margin: 0;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding-top: var(--space-2);
+}
+
+/* ============================================================
+ * HERO VISUAL — SEAMLESS TRANSPARENT 3D ECOSYSTEM
+ * (Zero rectangular borders, zero poster frames)
+ * ============================================================ */
+
+.hero-visual-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.hero-3d-container {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  animation: subtleFloat 6s ease-in-out infinite alternate;
+}
+
+.hero-3d-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+@keyframes subtleFloat {
+  0%   { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-3d-container {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+ * KEY CAPABILITIES STRIP (DEDICATED SECTION BELOW HERO)
+ * ============================================================ */
+
+.capabilities-strip {
+  background: #f8fafc;
+  border-top: 1px solid #dce5f2;
+  border-bottom: 1px solid #dce5f2;
+  padding: var(--space-10) 0;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.capability-card {
+  background: #ffffff;
+  border: 1px solid #dce5f2;
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  box-shadow: 0 2px 10px rgba(11, 18, 32, 0.03);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.capability-card:hover {
+  transform: translateY(-3px);
+  border-color: #2563eb;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.10);
+}
+
+.capability-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  background: #eff6ff;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.capability-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.capability-title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0b1220;
+  line-height: 1.2;
+}
+
+.capability-desc {
+  font-size: 0.8125rem;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+/* ============================================================
+ * EDITORIAL POSITIONING STATEMENT
+ * ============================================================ */
+
+.positioning-strip {
+  background: #ffffff;
+  padding: var(--space-16) 0;
+}
+
+.positioning-statement {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 2.125rem);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  color: var(--color-text-heading);
+  letter-spacing: var(--tracking-tight);
+  max-width: 960px;
+}
+
+.positioning-statement .highlight {
+  color: #2563eb;
+}
+
+/* ============================================================
+ * PROCESS STEPS (5-STAGE STRATEGIC WORKFLOW)
+ * ============================================================ */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  position: relative;
+}
+
+.process-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.process-card:hover {
+  transform: translateY(-4px);
+  border-color: #2563eb;
+  box-shadow: var(--shadow-md);
+}
+
+.process-step-num {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-extrabold);
+  color: #2563eb;
+  line-height: 1;
+}
+
+.process-title {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-heading);
+}
+
+.process-desc {
+  font-size: var(--text-caption);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ============================================================
+ * ADVERTISERS VS PUBLISHERS SPLIT
+ * ============================================================ */
+
+.ecosystem-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.ecosystem-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8) var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.ecosystem-card--advertisers {
+  border-top: 4px solid #2563eb;
+}
+
+.ecosystem-card--publishers {
+  border-top: 4px solid #d97706;
+}
+
+.ecosystem-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.ecosystem-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+}
+
+.ecosystem-list-item .check {
+  color: #2563eb;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.ecosystem-card--publishers .check {
+  color: #d97706;
+}
+
+/* ============================================================
+ * NEXTLAB PARTNER SHOWCASE SECTION
+ * ============================================================ */
+
+.nextlab-showcase-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.nextlab-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.nextlab-logo-img {
+  max-width: 170px;
+  height: auto;
+  object-fit: contain;
+}
+
+.nextlab-capabilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+/* ============================================================
+ * TESTIMONIALS
+ * ============================================================ */
+
+.testimonial-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  position: relative;
+}
+
+.testimonial-text {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-primary);
+  font-style: italic;
+}
+
+.testimonial-cite {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.cite-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-accent-primary-muted);
+  border: 1px solid var(--color-accent-primary-border);
+  color: #2563eb;
+  font-weight: var(--weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* ============================================================
+ * RESPONSIVE RULES
+ * ============================================================ */
+
+@media (max-width: 1200px) {
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  .hero-visual-wrap {
+    order: 2;
+  }
+  .process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .nextlab-showcase-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 900px) {
+  .ecosystem-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-headline {
+    font-size: clamp(2.2rem, 8vw, 2.9rem);
+  }
+}
