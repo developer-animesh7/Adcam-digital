@@ -12,8 +12,8 @@ const ADCAM_SITE_DATA = {
     tagline: "Performance-Driven Digital Advertising & Growth",
     foundedYear: "2024",
     founders: [
-      { name: "Nitesh Kumar Bagla", role: "Co-Founder" },
-      { name: "Shadab Shamim", role: "Co-Founder" }
+      { name: "Nitesh Kumar Bagla", role: "Founder" },
+      { name: "Shadab Shamim", role: "Founder" }
     ],
     mission: "To drive high-quality traffic for our advertisers while fostering long-term, collaborative relationships with our publishing partners, leveraging innovative digital tools and strategies to help businesses grow globally.",
     headquarters: {
