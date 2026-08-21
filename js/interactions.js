@@ -12,7 +12,7 @@
 (function () {
   'use strict';
 
-  // ============================================================
+    // ============================================================
   // 1. HERO TYPEWRITER ANIMATION (ZERO LAYOUT SHIFT)
   // ============================================================
   function initTypewriter() {
@@ -24,42 +24,28 @@
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
-      typewriterElement.textContent = "Digital Marketing and Innovation";
+      typewriterElement.textContent = "Digital Marketing";
       if (cursor) cursor.style.display = 'none';
       return;
     }
 
-    // Determine mobile vs desktop (width check)
-    const isMobile = window.matchMedia('(max-width: 640px)').matches;
-
-    // Full desktop phrases
-    const desktopPhrases = [
-      "Digital Marketing and Innovation",
-      "Performance Marketing",
-      "Digital Advertising",
-      "Audience Growth",
-      "Targeted Campaigns"
-    ];
-
-    // Shorter mobile phrases — avoid horizontal overflow
-    const mobilePhrases = [
+    // 5 Approved rotating phrases representing digital advertising & technology capabilities
+    const phrases = [
       "Digital Marketing",
       "Performance Marketing",
-      "Digital Advertising",
-      "Audience Growth",
-      "Targeted Campaigns"
+      "Software Development",
+      "Digital Transformation",
+      "Technology & Innovation"
     ];
-
-    const phrases = isMobile ? mobilePhrases : desktopPhrases;
 
     let phraseIndex = 0;
     let charIndex = phrases[0].length;
     let isDeleting = true;
     let timerId = null;
 
-    const typingSpeed   = 80;
-    const deletingSpeed = 40;
-    const holdDelay     = 2200;
+    const typingSpeed     = 80;
+    const deletingSpeed   = 40;
+    const holdDelay       = 2200;
     const pauseBeforeType = 420;
 
     function type() {
@@ -87,7 +73,7 @@
       timerId = setTimeout(type, delta);
     }
 
-    // Hold initial text for holdDelay before starting first deletion
+    // Hold initial text before starting first deletion
     timerId = setTimeout(type, holdDelay);
   }
 

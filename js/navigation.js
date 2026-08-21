@@ -143,16 +143,21 @@
    * ACTIVE LINK — mark current page nav link
    * ============================================================ */
 
-  function setActiveLinks() {
-    const currentPath = window.location.pathname;
+    function setActiveLinks() {
+    let currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+    if (currentPath.endsWith('/index.html')) currentPath = '/';
+    else if (currentPath.startsWith('/pages/')) currentPath = '/' + currentPath.replace('/pages/', '').replace('.html', '');
+    else if (currentPath.endsWith('.html')) currentPath = currentPath.replace('.html', '');
+
     const allLinks = document.querySelectorAll('.nav-link, .nav-mobile__link');
 
     allLinks.forEach(link => {
-      const linkPath = new URL(link.href, window.location.origin).pathname;
+      let linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/$/, '') || '/';
+      if (linkPath.endsWith('/index.html')) linkPath = '/';
+      else if (linkPath.startsWith('/pages/')) linkPath = '/' + linkPath.replace('/pages/', '').replace('.html', '');
+      else if (linkPath.endsWith('.html')) linkPath = linkPath.replace('.html', '');
 
-      const isActive =
-        (currentPath === '/' && (linkPath === '/' || linkPath.endsWith('/index.html'))) ||
-        (linkPath !== '/' && currentPath.endsWith(linkPath.split('/').pop()));
+      const isActive = (currentPath === linkPath);
 
       if (isActive) {
         link.classList.add('is-active');

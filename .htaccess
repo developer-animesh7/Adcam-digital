@@ -1,0 +1,51 @@
+# ============================================================
+# ADCAM DIGITAL — PRODUCTION .htaccess
+# Clean URLs, 301 Canonical Redirects, Caching & Security
+# ============================================================
+
+RewriteEngine On
+RewriteBase /
+
+# 1. Strip trailing slashes (except for directories)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# 2. 301 Redirect direct requests for index.html to /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9} /index.html [NC]
+RewriteRule ^index.html$ / [R=301,L]
+
+# 3. 301 Redirect /pages/filename.html to clean /filename
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9} /pages/([^/.]+).html [NC]
+RewriteRule ^pages/([^/.]+).html$ /$1 [R=301,L]
+
+# 4. 301 Redirect direct /filename.html to clean /filename
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9} /([^/.]+).html [NC]
+RewriteRule ^([^/.]+).html$ /$1 [R=301,L]
+
+# 5. Internal Rewrites from Clean Routes to pages/*.html
+RewriteRule ^about/?$ pages/about.html [L]
+RewriteRule ^services/?$ pages/services.html [L]
+RewriteRule ^ecosystem/?$ pages/ecosystem.html [L]
+RewriteRule ^contact/?$ pages/contact.html [L]
+RewriteRule ^privacy-policy/?$ pages/privacy-policy.html [L]
+RewriteRule ^terms/?$ pages/terms.html [L]
+
+# 6. Fallback internal rewrite for any pages/*.html file
+RewriteCond %{DOCUMENT_ROOT}/pages/$1.html -f
+RewriteRule ^([^/]+)/?$ pages/$1.html [L]
+
+# 7. Custom 404 Error Page
+ErrorDocument 404 /404.html
+
+# 8. Browser Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
