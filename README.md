@@ -13,7 +13,7 @@ AdCam Digital is a performance-driven digital advertising, traffic generation, a
 - **Brand:** AdCam Digital
 - **Founders:** Nitesh Kumar Bagla & Shadab Shamim
 - **Headquarters:** 198 ML Bagla Sadan, ICR Road, Babhantoli, Giridih, Jharkhand 815301, India
-- **Contact:** `campaign@adcamdigital.com` | `+91 94301 00937` / `+91 70286 87726`
+- **Contact:** `adcamdigital@gmail.com` | `+91 94301 00937` / `+91 70286 87726`
 - **Official Website:** [https://www.adcamdigital.com](https://www.adcamdigital.com)
 - **Technology & Innovation Partner:** NextLab Innovations ([https://nextlabinnovations.tech](https://nextlabinnovations.tech))
 

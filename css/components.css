@@ -530,3 +530,67 @@
 }
 
 
+
+/* ============================================================
+ * SERVICE CARD PARTNER INDICATOR (Homepage Card 03)
+ * ============================================================ */
+
+.service-card__partner-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-top: auto;
+  margin-bottom: var(--space-1);
+}
+
+.service-card__partner-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.service-card__partner-label {
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  color: var(--color-accent-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+.service-card__partner-name {
+  font-size: var(--text-label);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+.service-card__partner-logo {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  border-radius: var(--radius-xs);
+  display: block;
+}
+
+.pill-label--neutral {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.pill-label--amber {
+  background: var(--color-accent-secondary-muted);
+  border-color: var(--color-accent-secondary-border);
+  color: var(--color-accent-secondary);
+}
+
+.pill-label--teal {
+  background: var(--color-accent-teal-muted);
+  border-color: var(--color-accent-teal-border);
+  color: var(--color-accent-teal);
+}

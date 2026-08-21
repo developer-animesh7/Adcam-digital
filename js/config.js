@@ -13,7 +13,7 @@
       name: "AdCam Digital",
       legalName: "AdCam Digital Private Limited",
       domain: "https://www.adcamdigital.com",
-      email: "campaign@adcamdigital.com",
+      email: "adcamdigital@gmail.com",
       phone: "+91 9430100937"
     },
 

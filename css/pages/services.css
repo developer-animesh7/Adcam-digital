@@ -63,3 +63,65 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+ * SERVICE DETAIL PARTNER BADGE (Services Page Card 07)
+ * ============================================================ */
+
+.service-detail-partner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-5);
+}
+
+.service-detail-partner__logo {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  border-radius: var(--radius-xs);
+  display: block;
+}
+
+.service-detail-partner__meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.service-detail-partner__name {
+  font-size: var(--text-label);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+}
+
+.service-detail-partner__role {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  font-weight: var(--weight-semibold);
+}
+
+@media (max-width: 480px) {
+  .service-detail-card {
+    padding: var(--space-4);
+    gap: var(--space-6);
+    border-radius: var(--radius-xl);
+  }
+  .service-features-list {
+    gap: var(--space-2);
+  }
+  .service-feature-tag {
+    font-size: var(--text-caption, 12px);
+    padding: var(--space-2);
+  }
+  .service-detail-partner {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+  }
+}

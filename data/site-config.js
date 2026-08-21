@@ -26,8 +26,8 @@ const ADCAM_SITE_DATA = {
       formatted: "198 ML Bagla Sadan, ICR Road, Babhantoli, Giridih, Jharkhand 815301, India"
     },
     contact: {
-      primaryEmail: "campaign@adcamdigital.com",
-      generalEmail: "contact@adcamdigital.com",
+      primaryEmail: "adcamdigital@gmail.com",
+      generalEmail: "adcamdigital@gmail.com",
       phone1: "+91 9430100937",
       phone2: "+91 7028687726",
       phoneFormatted: "+91 94301 00937 / +91 70286 87726",
@@ -101,6 +101,15 @@ const ADCAM_SITE_DATA = {
       category: "Growth Architecture",
       summary: "End-to-end consulting that aligns marketing goals, technology choices, and channel execution into a cohesive roadmap for sustainable business growth.",
       highlights: ["Market & Competitor Analysis", "Growth Roadmap Development", "Analytics & Reporting Setup", "Partner Ecosystem Alignment"]
+    },
+    {
+      id: "software-development",
+      number: "07",
+      title: "Website & Software Development",
+      category: "Technology & Engineering",
+      partner: "NextLab Innovations",
+      summary: "Modern websites, web applications, and custom digital software solutions designed, developed, deployed, and maintained through our technology delivery partnership with NextLab Innovations.",
+      highlights: ["Custom Web Development", "Web & Cloud Applications", "UI/UX & Product Design", "Software Architecture"]
     }
   ],
 
