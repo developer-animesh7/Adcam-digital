@@ -28,6 +28,7 @@
     'performance_marketing',
     'traffic_acquisition',
     'strategic_advisory_consulting',
+    'website_software_development',
     'software_development_project',
     'devops_maintenance',
     'freelancing',
